@@ -7,7 +7,53 @@
 ![GNOME](https://img.shields.io/badge/GNOME-4A86CF?style=flat-square&logo=gnome&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
 
-Personal dotfiles and shell configurations.
+Personal dotfiles and shell configurations. Cross-distro compatible.
+
+## Compatibility
+
+| Component | Arch | Fedora | Debian/Ubuntu | macOS |
+|-----------|:----:|:------:|:-------------:|:-----:|
+| zsh       | ✓    | ✓      | ✓             | ✓     |
+| vim       | ✓    | ✓      | ✓             | ✓     |
+| kitty     | ✓    | ✓      | ✓             | ✓     |
+| fzf       | ✓    | ✓      | ✓             | ✓     |
+| nvm       | ✓    | ✓      | ✓             | ✓     |
+| gnome     | ✓    | ✓      | ✓             | -     |
+| git       | ✓    | ✓      | ✓             | ✓     |
+
+## Quick Start
+
+```bash
+# Clone the repo
+git clone git@github.com:Dxsk/dotenv.git ~/Documents/dotenv
+
+# Run the installer
+cd ~/Documents/dotenv && ./install.sh
+```
+
+That's it! The installer handles everything: symlinks, GNOME extensions, keybindings, etc.
+
+## Dependencies
+
+Install these packages first:
+
+```bash
+# Arch
+sudo pacman -S zsh vim kitty fzf git
+
+# Fedora
+sudo dnf install zsh vim kitty fzf git
+
+# Debian/Ubuntu
+sudo apt install zsh vim kitty fzf git
+
+# macOS (Homebrew)
+brew install zsh vim kitty fzf git
+```
+
+Optional:
+- [Oh My Zsh](https://ohmyz.sh/) - zsh framework
+- [nvm](https://github.com/nvm-sh/nvm) - Node version manager
 
 ## Features
 
@@ -15,7 +61,49 @@ Personal dotfiles and shell configurations.
 - **Zsh configurations** - Modular shell setup with useful functions and aliases
 - **Directory navigation** - `back` command with history stack and fzf integration
 - **Workstation aliases** - Shortcuts for dnf, systemd, podman, python venvs, and more
-- **GNOME extension** - Focus highlight border for active windows
+- **GNOME keybindings** - i3-style window management (Alt+Arrows for focus, Shift+Alt+Arrows for tiling)
+- **Git multi-domain** - Automatic email switching between GitHub and GitLab
+
+## Installation Options
+
+```bash
+./install.sh              # Install everything
+./install.sh zsh          # Install only zsh config
+./install.sh vim          # Install only vim config
+./install.sh kitty        # Install only kitty config
+./install.sh gnome        # Install GNOME keybindings & extensions
+./install.sh git          # Install git config
+./install.sh export-git   # Export current git config to repo
+```
+
+## Structure
+
+```
+dotenv/
+├── install.sh                    # Main installer
+├── git/
+│   ├── gitconfig                 # Main git config
+│   ├── gitconfig-github          # GitHub-specific (email)
+│   └── gitconfig-gitlab          # GitLab-specific (email)
+├── gnome/
+│   ├── install-keybindings.sh    # GNOME extensions & keybindings installer
+│   └── keybindings.dconf         # Exported keybindings
+├── gnome-extensions/
+│   └── focus-highlight@custom/   # Window focus border extension
+├── kitty/
+│   └── kitty.conf                # Kitty terminal config
+├── vim/
+│   ├── vimrc                     # Vim configuration
+│   └── colors/
+│       └── kanagawa-gruvbox.vim  # Custom colorscheme
+└── zsh/
+    ├── colors.zsh                # Hex color preview functions
+    ├── fzf.zsh                   # Fzf config (cross-distro)
+    ├── kitty.zsh                 # Kitty terminal integration
+    ├── navigation.zsh            # Directory history & back command
+    ├── nvm.zsh                   # Node Version Manager
+    └── workstation.zsh           # System aliases & functions
+```
 
 ## Color Palette
 
@@ -31,52 +119,21 @@ Personal dotfiles and shell configurations.
 | ![Violet](https://img.shields.io/badge/-%23c678dd?style=flat-square&color=c678dd) | `#c678dd` | Violet |
 | ![Pink](https://img.shields.io/badge/-%23ff79c6?style=flat-square&color=ff79c6) | `#ff79c6` | Pink |
 
-## Structure
+## GNOME Keybindings
 
-```
-dotenv/
-├── install.sh                          # Installation script
-├── gnome-extensions/
-│   └── focus-highlight@custom/         # Window focus border extension
-│       ├── extension.js
-│       └── metadata.json
-├── kitty/
-│   └── theme.conf                      # Kitty terminal theme
-├── vim/
-│   └── colors/
-│       └── kanagawa-gruvbox.vim        # Vim colorscheme
-└── zsh/
-    ├── colors.zsh                      # Hex color preview functions
-    ├── fzf.zsh                         # Fzf configuration
-    ├── kitty.zsh                       # Kitty terminal integration
-    ├── navigation.zsh                  # Directory history & back command
-    ├── nvm.zsh                         # Node Version Manager
-    └── workstation.zsh                 # System aliases & functions
-```
-
-## Installation
-
-```bash
-# Clone the repo
-git clone https://github.com/YOUR_USERNAME/dotenv.git ~/Documents/dotenv
-
-# Run the installer (adds loader to .zshrc)
-cd ~/Documents/dotenv
-./install.sh
-
-# Create symlinks
-ln -sf ~/Documents/dotenv/vim/colors/kanagawa-gruvbox.vim ~/.vim/colors/
-ln -sf ~/Documents/dotenv/gnome-extensions/focus-highlight@custom ~/.local/share/gnome-shell/extensions/
-
-# Add to kitty.conf
-echo "include ~/Documents/dotenv/kitty/theme.conf" >> ~/.config/kitty/kitty.conf
-
-# Set vim colorscheme in .vimrc
-echo "colorscheme kanagawa-gruvbox" >> ~/.vimrc
-
-# Reload
-source ~/.zshrc
-```
+| Shortcut | Action |
+|----------|--------|
+| `Alt+T` | Launch Kitty terminal |
+| `Alt+C` | Close window |
+| `Alt+D` | Application search |
+| `Alt+F` | Toggle fullscreen |
+| `Alt+Arrows` | Focus window in direction (i3-style) |
+| `Shift+Alt+Left/Right` | Tile window left/right (50%) |
+| `Shift+Alt+Up` | Maximize window |
+| `Shift+Alt+Down` | Restore window |
+| `Super+D` | Show desktop |
+| `Super+V` | Clipboard history |
+| `Shift+Super+S` | Screenshot area to clipboard |
 
 ## Zsh Functions
 
@@ -115,14 +172,6 @@ source ~/.zshrc
 | `pcleanall` | Stop and remove all containers |
 
 > Type `ws-help` or `podman-help` for full command reference.
-
-## Requirements
-
-- [Oh My Zsh](https://ohmyz.sh/)
-- [Powerlevel10k](https://github.com/romkatv/powerlevel10k) (optional)
-- [fzf](https://github.com/junegunn/fzf)
-- [Kitty](https://sw.kovidgoyal.net/kitty/) terminal
-- GNOME Shell 45+
 
 ## License
 
