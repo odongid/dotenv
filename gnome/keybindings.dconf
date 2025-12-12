@@ -1,0 +1,90 @@
+# ─────────────────────────────────────────────────────────────────────────────────
+#                           GNOME KEYBINDINGS
+# ─────────────────────────────────────────────────────────────────────────────────
+# Import: dconf load / < ~/Documents/dotenv/gnome/keybindings.dconf
+# Export: dconf dump / | grep -A 100 "keybindings\|media-keys" > keybindings.dconf
+# ─────────────────────────────────────────────────────────────────────────────────
+
+# =============================================================================
+#  CUSTOM KEYBINDINGS (Applications)
+# =============================================================================
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Alt>t'
+command='kitty'
+name='Launch Kitty Terminal'
+
+# =============================================================================
+#  WINDOW MANAGEMENT
+# =============================================================================
+[org/gnome/desktop/wm/keybindings]
+# Alt+F : Toggle fullscreen
+toggle-fullscreen=['<Alt>f']
+
+# Alt+C : Close focused window
+close=['<Alt>c']
+
+# Super+D : Show desktop (minimize all)
+show-desktop=['<Super>d']
+
+# Disable default switch-windows (using Forge instead)
+switch-windows=@as []
+switch-windows-backward=@as []
+
+# Shift+Alt+Up/Down : Maximize/restore
+maximize=['<Shift><Alt>Up']
+unmaximize=['<Shift><Alt>Down']
+
+# Disable move-to-side (using mutter tiling instead)
+move-to-side-e=@as []
+move-to-side-w=@as []
+
+# =============================================================================
+#  MUTTER KEYBINDINGS (Window Tiling)
+# =============================================================================
+[org/gnome/mutter/keybindings]
+# Shift+Alt+Left/Right : Tile windows (snap like Windows)
+toggle-tiled-left=['<Shift><Alt>Left']
+toggle-tiled-right=['<Shift><Alt>Right']
+
+# =============================================================================
+#  SHELL & NAVIGATION
+# =============================================================================
+[org/gnome/shell/keybindings]
+# Alt+D : Application search/overview
+toggle-application-view=['<Alt>d']
+
+# Shift+Super+S : Screenshot area to clipboard
+screenshot-window=['<Shift><Super>s']
+
+# =============================================================================
+#  FORGE EXTENSION (i3-like tiling & focus)
+# =============================================================================
+[org/gnome/shell/extensions/forge/keybindings]
+# Alt+Arrows : Focus window in direction (i3-style)
+window-focus-left=['<Alt>Left']
+window-focus-right=['<Alt>Right']
+window-focus-up=['<Alt>Up']
+window-focus-down=['<Alt>Down']
+
+# =============================================================================
+#  CLIPBOARD HISTORY EXTENSION
+# =============================================================================
+[org/gnome/shell/extensions/clipboard-history]
+# Super+V : Open clipboard history
+toggle-menu=['<Super>v']
+
+[org/gnome/settings-daemon/plugins/media-keys]
+# Alternative screenshot bindings
+area-screenshot-clip=['<Shift><Super>s']
+
+# =============================================================================
+#  ROUNDED WINDOW CORNERS EXTENSION
+# =============================================================================
+[org/gnome/shell/extensions/rounded-window-corners-reborn]
+# Border radius for windows
+corner-radius=12
+# Smoothing factor (higher = smoother)
+corner-smoothing=0.5
