@@ -15,7 +15,7 @@ NC='\033[0m'
 # Extensions to install
 declare -A EXTENSIONS=(
     ["clipboard-history@alexsaveau.dev"]="4839"
-    ["forge@jmmaranan.com"]="4481"
+    ["tiling-assistant@leleat-on-github"]="3733"
     ["rounded-window-corners@fxgn"]="7048"
 )
 
@@ -125,8 +125,8 @@ case "${1:-install}" in
             echo "[org/gnome/shell/keybindings]"
             dconf dump /org/gnome/shell/keybindings/
             echo ""
-            echo "[org/gnome/shell/extensions/forge/keybindings]"
-            dconf dump /org/gnome/shell/extensions/forge/keybindings/
+            echo "[org/gnome/shell/extensions/tiling-assistant]"
+            dconf dump /org/gnome/shell/extensions/tiling-assistant/
             echo ""
             echo "[org/gnome/shell/extensions/clipboard-history]"
             dconf dump /org/gnome/shell/extensions/clipboard-history/

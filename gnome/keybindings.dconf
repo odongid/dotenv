@@ -60,14 +60,16 @@ toggle-application-view=['<Alt>d']
 screenshot-window=['<Shift><Super>s']
 
 # =============================================================================
-#  FORGE EXTENSION (i3-like tiling & focus)
+#  TILING ASSISTANT EXTENSION (i3-like focus)
 # =============================================================================
-[org/gnome/shell/extensions/forge/keybindings]
+[org/gnome/shell/extensions/tiling-assistant]
 # Alt+Arrows : Focus window in direction (i3-style)
 window-focus-left=['<Alt>Left']
 window-focus-right=['<Alt>Right']
 window-focus-up=['<Alt>Up']
 window-focus-down=['<Alt>Down']
+# Focus hint color (red accent)
+focus-hint-color='rgb(230,45,66)'
 
 # =============================================================================
 #  CLIPBOARD HISTORY EXTENSION
